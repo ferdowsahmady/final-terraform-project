@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  ami =  data.aws_ami.example.image_id
+  ami =  data.aws_ami.amazon_linux_2023.image_id
 
   subnet_id                   = var.subnet_id
   associate_public_ip_address = true            

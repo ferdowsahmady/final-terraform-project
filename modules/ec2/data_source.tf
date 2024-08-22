@@ -1,9 +1,19 @@
-data "aws_ami" "example" {
+data "aws_ami" "amazon_linux_2023" {
   most_recent = true
-  owners      = ["137112412989"]
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["al2023-ami-2023.4.20240528.0-kernel-6.1-x86_64"] #amzn2-ami-hvm-2.0.20211001.1-x86_64-*"]
+    values = ["al2023-ami-*-x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
   }
 }
