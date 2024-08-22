@@ -45,7 +45,7 @@ resource "aws_codepipeline" "codepipeline" {
 
       configuration = {
         ConnectionArn    = aws_codestarconnections_connection.example.arn
-        FullRepositoryId = "ferdowsahmady/terraform-final-project"
+        FullRepositoryId = "https://github.com/ferdowsahmady/terraform-final-project/tree/main"
         BranchName       = "main"
         # OAuthToken = data.aws_ssm_parameter.git-token-terraform-project.value 
       }
