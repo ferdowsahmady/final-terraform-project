@@ -38,16 +38,16 @@ resource "aws_codepipeline" "codepipeline" {
     action {
       name             = "Source"
       category         = "Source"
-      owner            = "ThirdParty"
-      provider         = "GitHub"
-      version          = "2"
+      owner            = "AWS"
+      provider         = "CodeStarSourceConnection"
+      version          = "1"
       output_artifacts = ["source_output"]
 
       configuration = {
-        Owner      = var.GitHubOwner
-        Repo       = var.GitHubRepo
-        Branch     = var.GitHubBranch
-        OAuthToken = data.aws_ssm_parameter.git-token-terraform-project.value 
+        ConnectionArn    = aws_codestarconnections_connection.example.arn
+        FullRepositoryId = "ferdowsahmady/terraform-final-project"
+        BranchName       = "main"
+        # OAuthToken = data.aws_ssm_parameter.git-token-terraform-project.value 
       }
     }
   }
@@ -82,15 +82,14 @@ resource "aws_codepipeline" "codepipeline" {
       version         = "1"
 
       configuration = {
-        #ActionMode     = "REPLACE_ON_FAILURE"
-        #Capabilities   = "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM"
-        #OutputFileName = "CreateStackOutput.json"
-        #role_arn = aws_iam_role.deploy_role.arn
         ApplicationName     = "MyDemoApplication"
         DeploymentGroupName = "MyDemoDeploymentGroup"
-        #StackName      = "MyStack"
-        #TemplatePath   = "build_output::sam-templated.yaml"
       }
     }
   }
+}
+
+resource "aws_codestarconnections_connection" "example" {
+  name          = "example-connection"
+  provider_type = "GitHub"
 }
