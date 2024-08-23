@@ -1,35 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Sample Deployment</title>
-  <style>
-    body {
-      color: #ffffff;
-      background-color: #0188cc;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
-    
-    h1 {
-      font-size: 500%;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-    
-    h2 {
-      font-size: 200%;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Vibrant Project</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #f94d6a, #ff7c43);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-top: 10vh;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 2s ease;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            width: 300px;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            background-color: #fff;
+            color: #ff6b6b;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff9b9b;
+        }
+
+        footer {
+            margin-top: 10vh;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 <body>
-  <div align="center">
-    <h1>Congratulations Ziyotek DevOps Code-Killers </h1>
-    <h2>This application was deployed using AWS CI/CD Tools.</h2>
-    <p>For next steps, read the <a href="http://aws.amazon.com/documentation/codedeploy">AWS CodeDeploy Documentation</a>.</p>
-  </div>
+    <h1>My Final Project</h1>
+    <div class="container">
+        <div class="card">
+            <h2>Terraform Final Project</h2>
+            <p> Congratulations DevOps Code-Killers </p>
+            <button class="button">Learn More</button>
+        </div>
+        <div class="card">
+            <h2>Features</h2>
+            <p>This application was deployed using AWS CI/CD Tools. This project is a culmination of everything I've learned with Terraform.</p>
+            <button class="button">See Features</button>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Final Project. All rights reserved.
+    </footer>
 </body>
 </html>
-
