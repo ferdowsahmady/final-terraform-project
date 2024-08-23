@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool Vibrant Project</title>
+    <title>Vibrant Final Project</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #ff6b6b, #f94d6a, #ff7c43);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            scroll-behavior: smooth;
         }
 
         @keyframes gradientBG {
@@ -22,95 +21,200 @@
             100% { background-position: 0% 50%; }
         }
 
-        h1 {
-            font-size: 4rem;
-            margin-top: 10vh;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: fadeInDown 2s ease;
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes fadeInDown {
-            0% {
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #feb47b;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-20px);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 60vh;
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-out 0.5s backwards;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            width: 300px;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .card h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
+        .hero .cta-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
             border: none;
             border-radius: 50px;
             background-color: #fff;
-            color: #ff6b6b;
+            color: #ff7e5f;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 2s ease-out 1s backwards;
         }
 
-        .button:hover {
-            background-color: #ff9b9b;
+        .hero .cta-button:hover {
+            background-color: #feb47b;
+            transform: scale(1.05);
+        }
+
+        .content-section {
+            padding: 100px 50px;
+            text-align: center;
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff7e5f;
+        }
+
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        .content-section .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #666;
         }
 
         footer {
-            margin-top: 10vh;
-            font-size: 0.8rem;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <h1>My Final Project</h1>
-    <div class="container">
-        <div class="card">
-            <h2>Terraform Final Project</h2>
-            <p> Congratulations DevOps Code-Killers </p>
-            <button class="button">Learn More</button>
+    <header>
+        <div class="logo">My Project</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Code-Killers Terraform Project</h1>
+        <p>Where hardwork pays off</p>
+        <a href="#about"><button class="cta-button">Discover More</button></a>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2>About This Project</h2>
+        <p>This application was deployed using AWS CI/CD Tools. This project is a culmination of everything We've learned with Terraform.</p>
+    </section>
+
+    <section id="features" class="content-section">
+        <h2>Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Responsive Design</h3>
+                <p>Looks great on all devices, from mobile phones to desktop computers.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Interactive Elements</h3>
+                <p>Hover effects and animations bring the content to life.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Modern Layout</h3>
+                <p>A clean, structured layout with vibrant colors and smooth transitions.</p>
+            </div>
         </div>
-        <div class="card">
-            <h2>Features</h2>
-            <p>This application was deployed using AWS CI/CD Tools. This project is a culmination of everything I've learned with Terraform.</p>
-            <button class="button">See Features</button>
-        </div>
-    </div>
-    <footer>
-        &copy; 2024 Final Project. All rights reserved.
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2024 Terraform Final Project. All rights reserved.</p>
+        <p>Contact: <a href="code-killers@cool.com" style="color: #ff7e5f;">your.email@example.com</a></p>
     </footer>
 </body>
 </html>
