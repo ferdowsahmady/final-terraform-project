@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "deploy_role" {
-  name = "example-role"
+  name = "app1-role"
 
   assume_role_policy = <<EOF
 {
@@ -42,13 +42,13 @@ resource "aws_iam_role_policy" "codedeploy_policy" {
   EOF
 }
 
-resource "aws_codedeploy_app" "example" {
-  name = "MyDemoApplication"
+resource "aws_codedeploy_app" "app1" {
+  name = "app1Deploy"
 }
 
-resource "aws_codedeploy_deployment_group" "example" {
-  app_name              = aws_codedeploy_app.example.name
-  deployment_group_name = "MyDemoDeploymentGroup"
+resource "aws_codedeploy_deployment_group" "app1_deployment" {
+  app_name              = aws_codedeploy_app.app1.name
+  deployment_group_name = "app1DeploymentGroup"
   service_role_arn      = aws_iam_role.deploy_role.arn
 
 

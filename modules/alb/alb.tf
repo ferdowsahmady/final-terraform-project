@@ -26,7 +26,7 @@ resource "aws_lb_listener" "web" {
 
     fixed_response {
       content_type = "text/plain"
-      message_body = "default"
+      message_body = "default listener rule"
       status_code  = "200"
     }
   }
