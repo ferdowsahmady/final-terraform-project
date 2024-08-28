@@ -5,3 +5,5 @@ crash.log
 modules/bootstrap/.terraform
 modules/vpc/.terraform
 *.tfvars
+.terraform*
+
