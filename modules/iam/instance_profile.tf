@@ -4,7 +4,6 @@ resource "aws_iam_instance_profile" "codebuild_profile" {
 }
 
 #######################################################
-
 resource "aws_iam_role" "deploy_role" {
   name = "ec2_deploy_role-${var.environment}"
 

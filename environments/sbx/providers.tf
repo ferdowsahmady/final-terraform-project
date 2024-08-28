@@ -1,5 +1,12 @@
 provider "aws" {
   region = "us-east-1"
+  default_tags {
+    tags = {
+      Project = "Terraform-Final-Project"
+      Team    = "Code-Killers"
+      Class   = "026DO"
+    }
+  }
 }
 
 terraform {
@@ -8,6 +15,6 @@ terraform {
     key     = "terraform.tfstate"
     region  = "us-east-1"
     encrypt = true
-    # dynamodb_table = "terraform-state-lock"
+    dynamodb_table = "terraform-state-lock"
   }
 }
