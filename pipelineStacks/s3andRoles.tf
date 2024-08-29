@@ -1,5 +1,5 @@
 variable "aritifact_bucket_name" {
-  default = "project-pipeline-artifacts-code-killers"
+  default = "project-pipeline-artifacts"
 }
 
 resource "aws_s3_bucket" "example" {
@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "example" {
     provisioner "local-exec" {
     when    = destroy
     #command = "echo ${self.id} > testfile.txt"
-    command = "aws s3 rm s3://project-pipeline-artifacts-code-killers --recursive"
+    command = "aws s3 rm s3://project-pipeline-artifacts --recursive"
   }
 }
 
