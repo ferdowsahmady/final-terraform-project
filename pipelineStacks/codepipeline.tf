@@ -18,10 +18,7 @@ variable "GitHubRepo" {
   type    = string
 }
 
-variable "GitHubToken" {
-  type = string
-  default = "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"
-}
+
 
 resource "aws_codepipeline" "codepipeline" {
   name     = "final-project-pipeline"
@@ -47,7 +44,7 @@ resource "aws_codepipeline" "codepipeline" {
         Owner    = "rpaskalev"
         Repo = "terraform-final-project"
         Branch       = "troubleshoot/cicd"
-        OAuthToken = "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"
+       OAuthToken = data.aws_ssm_parameter.git-token.value
       }
     }
   }
