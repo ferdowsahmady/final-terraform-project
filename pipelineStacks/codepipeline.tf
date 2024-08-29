@@ -18,7 +18,10 @@ variable "GitHubRepo" {
   type    = string
 }
 
-
+variable "GitHubToken" {
+  type = string
+  default = null
+}
 
 resource "aws_codepipeline" "codepipeline" {
   name     = "final-project-pipeline"
@@ -35,16 +38,16 @@ resource "aws_codepipeline" "codepipeline" {
     action {
       name             = "Source"
       category         = "Source"
-      owner            = "ThirdParty"
-      provider         = "GitHub"
+      owner            = "AWS"
+      provider         = "CodeStarSourceConnection"
       version          = "1"
       output_artifacts = ["source_output"]
 
       configuration = {
-        Owner    = "rpaskalev"
-        Repo = "terraform-final-project"
-        Branch       = "troubleshoot/cicd"
-       OAuthToken = data.aws_ssm_parameter.git-token.value
+        ConnectionArn    = aws_codestarconnections_connection.example.arn
+        FullRepositoryId = "rpaskalev/terraform-final-project"
+        BranchName       = "troubleshoot/cicd"
+        # OAuthToken = data.aws_ssm_parameter.git-token-terraform-project.value 
       }
     }
   }
