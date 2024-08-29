@@ -83,7 +83,7 @@ resource "aws_codepipeline" "codepipeline" {
 
       configuration = {
         ApplicationName     = "app1Deploy"
-        DeploymentGroupName = "MyDemoDeploymentGroup"
+        DeploymentGroupName = "app1DeploymentGroup"
       }
     }
   }
