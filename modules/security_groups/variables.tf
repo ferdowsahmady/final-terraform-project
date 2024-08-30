@@ -1,6 +1,7 @@
 variable "environment" {}
+
 variable "sg_name" {
-    default = ""
+    default = "project-sg"
 }
 
 variable "vpc_id" {

@@ -65,10 +65,15 @@ resource "aws_lb_target_group" "app2" {
   protocol = "HTTP"
   vpc_id   = var.vpc_id
 
-    health_check {
-      path = "/"
-      port = 80
-    }
+  health_check {
+    path                = "/health"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 3
+    unhealthy_threshold = 2
+    matcher             = "200"
+    
+  }
     tags = {
       Name        =   "${var.environment}-app2-tg"
       Environment =   var.environment
