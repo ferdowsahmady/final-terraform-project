@@ -8,5 +8,9 @@ sudo mkdir /var/www/html/app1
 aws s3 cp s3://ferro-app1/index.html /var/www/html/app1/index.html
 sudo systemctl start httpd
 sudo systemctl enable httpd
-# sudo yum install -y aws-cli
-# sudo yum install -y ruby
+sudo yum install -y aws-cli
+sudo yum install -y ruby
+cd /home/ec2-user
+aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-east-1
+chmod +x ./install
+./install auto
