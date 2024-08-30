@@ -11,10 +11,10 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket  = "ferdows-rady-s3" #"terraform-state-file-code-killers"
+    bucket  = "terraform-state-file-code-killers"
     key     = "terraform.tfstate"
     region  = "us-east-1"
-    # encrypt = true
-    # dynamodb_table = "terraform-state-lock"
+    encrypt = true
+    dynamodb_table = "terraform-state-lock"
   }
 }
