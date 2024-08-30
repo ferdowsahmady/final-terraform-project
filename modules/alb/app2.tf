@@ -29,7 +29,7 @@ resource "aws_launch_template" "app2" {
 
     tags = {
     Name        =   "${var.environment}-app2-launch-template"
-    Environment =   var.environment
+    #Environment =   var.environment
     }
   }
     user_data = base64encode(file("../../app2.sh"))
