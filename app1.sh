@@ -8,3 +8,5 @@ sudo mkdir /var/www/html/app1
 aws s3 cp s3://ferro-app1/index.html /var/www/html/app1/index.html
 sudo systemctl start httpd
 sudo systemctl enable httpd
+# sudo yum install -y aws-cli
+# sudo yum install -y ruby
