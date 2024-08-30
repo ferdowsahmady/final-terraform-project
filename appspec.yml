@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: s3://ferro-app1/index.html
+  - source: /index.html
     destination: /var/www/html/app1
 hooks:
   BeforeInstall:
