@@ -47,9 +47,9 @@ resource "aws_codedeploy_deployment_group" "app1_deployment" {
   deployment_group_name = "app1DeploymentGroup"
   service_role_arn      = aws_iam_role.deploy_role.arn
 
-  # ec2_tag_filter {
-  #   key   = "AnyKey"
-  #   type  = "KEY_AND_VALUE"
-  #   value = ""
-  # }
+  ec2_tag_filter {
+    key   = "AnyKey"
+    type  = "KEY_ONLY"
+    value = ""
+  }
 }
