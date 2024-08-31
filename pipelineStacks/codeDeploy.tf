@@ -50,6 +50,6 @@ resource "aws_codedeploy_deployment_group" "app1_deployment" {
   ec2_tag_filter {
     key   = "Environment"
     type  = "KEY_AND_VALUE"
-    value = "sbx"
+    value = "production"
   }
 }

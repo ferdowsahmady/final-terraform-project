@@ -24,7 +24,3 @@ variable "instance_type" {
   default = ""
 }
 
-# variable "key_name" {
-#   type    = string
-#   default = "project-ssh-keypair"
-# }

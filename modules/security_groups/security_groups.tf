@@ -30,6 +30,7 @@ resource "aws_security_group" "allow_all" {
   }
 
     tags = {
+    Name  = "alb-sg"
     Environment = var.environment
   }
 }

@@ -1,5 +1,3 @@
-#testing copy html from s3 to launch-template
-##################################################
 resource "aws_iam_role" "ec2_role" {
   name = "ec2_role"
 

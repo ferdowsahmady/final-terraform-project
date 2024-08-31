@@ -1,26 +1,11 @@
-variable "buildspecpath" {
-  default = "buildspec.yml"
-  type    = string
-}
-
 variable "GitHubBranch" {
   default = "main"
   type    = string
 }
 
-variable "GitHubOwner" {
-  default = "ferdowsahmady"
-  type    = string
-}
-
 variable "GitHubRepo" {
-  default = "terraform-final-project"
+  default = "ferdowsahmady/terraform-final-project"
   type    = string
-}
-
-variable "GitHubToken" {
-  type = string
-  default = null
 }
 
 resource "aws_codepipeline" "codepipeline" {
@@ -45,10 +30,9 @@ resource "aws_codepipeline" "codepipeline" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        ConnectionArn    = aws_codestarconnections_connection.example.arn
-        FullRepositoryId = "ferdowsahmady/terraform-final-project"
-        BranchName       = "main"
-        # OAuthToken = data.aws_ssm_parameter.git-token-terraform-project.value 
+        ConnectionArn    = aws_codestarconnections_connection.Github.arn
+        FullRepositoryId = var.GitHubRepo
+        BranchName       = var.GitHubBranch
       }
     }
   }
@@ -90,7 +74,7 @@ resource "aws_codepipeline" "codepipeline" {
   }
 }
 
-resource "aws_codestarconnections_connection" "example" {
+resource "aws_codestarconnections_connection" "Github" {
   name          = "example-connection"
   provider_type = "GitHub"
 }

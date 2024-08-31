@@ -1,7 +1,7 @@
 variable "environment" {}
 
 variable "sg_name" {
-    default = ""
+    default = "alb-sg"
 }
 
 variable "vpc_id" {

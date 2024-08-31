@@ -3,7 +3,6 @@ resource "aws_iam_instance_profile" "codebuild_profile" {
   role = aws_iam_role.deploy_role.name
 }
 
-#######################################################
 resource "aws_iam_role" "deploy_role" {
   name = "ec2_deploy_role-${var.environment}"
 
@@ -44,7 +43,6 @@ resource "aws_iam_policy" "deploy_policy" {
 }
 EOF
 }
-
 
 resource "aws_iam_policy_attachment" "ec2_role_attach" {
   name       = "ec2-attachment-${var.environment}"

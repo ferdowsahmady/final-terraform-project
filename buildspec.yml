@@ -13,7 +13,7 @@ phases:
       - unzip -o terraform.zip
   build:
     commands:
-      - cd $CODEBUILD_SRC_DIR/environments/sbx
+      - cd $CODEBUILD_SRC_DIR/environments/production
       - terraform init -input=false
       # - terraform plan -input=false
       - terraform apply -auto-approve
