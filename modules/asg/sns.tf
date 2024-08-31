@@ -21,6 +21,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_alarm" {
 
 resource "aws_sns_topic_subscription" "cpu_alert_sms" {
   topic_arn = aws_sns_topic.cpu_alert.arn
+  endpoint_auto_confirms          = true
   protocol  = "sms"
   endpoint  = "+19254887668"
 }
