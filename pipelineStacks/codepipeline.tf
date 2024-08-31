@@ -11,7 +11,7 @@ variable "GitHubRepo" {
 resource "aws_codepipeline" "codepipeline" {
   name     = "final-project-pipeline"
   role_arn = aws_iam_role.codepipeline_role.arn
-  depends_on = [ aws_codestarconnections_connection.example ]
+  depends_on = [ aws_codestarconnections_connection.Github ]
 
   artifact_store {
     location = aws_s3_bucket.example.bucket
