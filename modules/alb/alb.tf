@@ -7,8 +7,7 @@ resource "aws_lb" "project_alb" {
   subnets            = var.alb-subnets
 
   enable_deletion_protection = false
-  enable_cross_zone_load_balancing = true
-
+  
     tags = {
     Name        =   "${var.environment}-project-alb"
     Environment =   var.environment

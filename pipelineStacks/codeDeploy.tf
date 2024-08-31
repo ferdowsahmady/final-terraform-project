@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_iam_role" "deploy_role" {
   name = "app1-role"
 
@@ -50,7 +46,6 @@ resource "aws_codedeploy_deployment_group" "app1_deployment" {
   app_name              = aws_codedeploy_app.app1.name
   deployment_group_name = "app1DeploymentGroup"
   service_role_arn      = aws_iam_role.deploy_role.arn
-
 
   ec2_tag_filter {
     key   = "Environment"
