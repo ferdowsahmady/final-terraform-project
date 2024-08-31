@@ -103,7 +103,6 @@ resource "aws_lb_listener_rule" "app2-rule" {
   }
 }
 
-#############################
 #Dynamic Scaling Policy
 resource "aws_autoscaling_policy" "project-asg-policy2" {
   name                   = "project-asg-dynamic-policy"
