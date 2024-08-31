@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo mkdir /var/www/html/app2
+sudo mkdir /var/www/html/app1
 yum -y update
 yum install -y ruby
 yum install -y aws-cli

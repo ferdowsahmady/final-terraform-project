@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Starting app1"
+echo "Starting app2"
 sudo yum update -y
 sudo yum install -y httpd
 sudo yum install -y stress
