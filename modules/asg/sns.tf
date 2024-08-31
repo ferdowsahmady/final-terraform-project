@@ -10,7 +10,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_alarm" {
   namespace           = "AWS/EC2"
   period              = "60"
   statistic           = "Average"
-  threshold           = "60"
+  threshold           = "70"
   alarm_description   = "This metric monitors ec2 app1 cpu utilization"
   alarm_actions       = [aws_sns_topic.cpu_alert.arn]
 
@@ -19,10 +19,16 @@ resource "aws_cloudwatch_metric_alarm" "cpu_alarm" {
   }
 }
 
-resource "aws_sns_topic_subscription" "cpu_alert_email" {
+resource "aws_sns_topic_subscription" "cpu_alert_sms" {
   topic_arn = aws_sns_topic.cpu_alert.arn
   protocol  = "sms"
   endpoint  = "+19254887668"
+}
+
+resource "aws_sns_topic_subscription" "cpu_alert_email" {
+  topic_arn = aws_sns_topic.cpu_alert.arn
+  protocol  = "email"
+  endpoint  = "ferdowsahmady@gmail.com"
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_alarm2" {

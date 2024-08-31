@@ -108,6 +108,7 @@ resource "aws_autoscaling_policy" "project-asg-policy2" {
   name                   = "project-asg-dynamic-policy"
   policy_type            = "TargetTrackingScaling"
   adjustment_type        = "ChangeInCapacity"
+  cooldown               = 60
   autoscaling_group_name = aws_autoscaling_group.app2_asg.name
 
   target_tracking_configuration {
