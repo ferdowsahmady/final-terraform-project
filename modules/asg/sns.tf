@@ -26,10 +26,22 @@ resource "aws_sns_topic_subscription" "cpu_alert_sms" {
   endpoint  = "+19254887668"
 }
 
+resource "aws_sns_topic_subscription" "cpu_alert_sms_2" {
+  topic_arn              = aws_sns_topic.cpu_alert.arn
+  protocol               = "sms"
+  endpoint               = "+12026300504"
+  endpoint_auto_confirms = true
+}
 resource "aws_sns_topic_subscription" "cpu_alert_email" {
   topic_arn = aws_sns_topic.cpu_alert.arn
   protocol  = "email"
   endpoint  = "ferdowsahmady@gmail.com"
+}
+
+resource "aws_sns_topic_subscription" "cpu_alert_email2" {
+  topic_arn = aws_sns_topic.cpu_alert.arn
+  protocol  = "email"
+  endpoint  = "mamur.azimov@lomixtech.com"
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_alarm2" {
